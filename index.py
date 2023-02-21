@@ -3,7 +3,7 @@ import requests
 from lxml import html
 
 # Página web de destino
-url = 'https://www.ejemplo.com/'
+url = 'https://www.sochisi.cl'
 
 # Realizar la solicitud HTTP a la página web
 response = requests.get(url)
