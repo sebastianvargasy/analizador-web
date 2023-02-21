@@ -1,19 +1,19 @@
 import streamlit as st
 import requests
-from bs4 import BeautifulSoup
+from lxml import html
 
 # Página web de destino
-url = 'https://www.sochisi.cl'
+url = 'https://www.ejemplo.com/'
 
 # Realizar la solicitud HTTP a la página web
 response = requests.get(url)
 
-# Analizar el HTML de la página web utilizando Beautiful Soup
-soup = BeautifulSoup(response.text, 'html.parser')
+# Analizar el HTML de la página web utilizando lxml
+tree = html.fromstring(response.content)
 
 # Extraer los elementos de la página web que deseas
 # Por ejemplo, el título de la página:
-title = soup.find('title').text
+title = tree.findtext('.//title')
 
 # Mostrar el resultado en la aplicación de Streamlit
 st.write(f"El título de la página es: {title}")
